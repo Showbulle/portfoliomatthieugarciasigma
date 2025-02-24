@@ -1,0 +1,497 @@
+/* === GLOBAL === */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0; /* Fond neutre pour toute la page */
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 20px; /* Plus d'espace sous les titres */
+}
+
+/* === NAVIGATION === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Ligne discrète sous le header */
+}
+
+.logo h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.8rem; /* Taille ajustée pour un effet plus moderne */
+}
+
+.nav-principale ul {
+    display: flex;
+    gap: 20px; /* Un peu plus d'espace entre les éléments */
+    list-style: none;
+}
+
+.nav-principale ul li a {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 30px; /* Coins plus arrondis pour un aspect plus doux */
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Bordure plus discrète */
+    text-decoration: none;
+}
+
+.nav-principale ul li a:hover {
+    background: white;
+    color: #ff758c;
+    transform: scale(1.1);
+    border-color: #ff758c; /* Ajout d'un contour lors du hover */
+}
+
+/* === BOUTONS === */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border-radius: 40px; /* Arrondi plus marqué pour un effet plus doux */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 118, 148, 0.2); /* Ombre plus douce */
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 118, 148, 0.3);
+}
+
+.btn .wave {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: waveAnimation 0.6s linear;
+}
+
+@keyframes waveAnimation {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* === SECTIONS (À propos de moi, Compétences, Etudes, Projets) === */
+section {
+    padding: 100px 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    text-align: center;
+    background-color: #fff; /* Fond blanc lumineux pour les sections */
+    border-radius: 12px; /* Coins arrondis pour plus de douceur */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Ombre douce pour plus de profondeur */
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+section.visible {
+    opacity: 1;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #ff758c; /* Couleur accentuée pour le titre des sections */
+    margin-bottom: 30px;
+}
+
+/* === À PROPOS DE MOI === */
+/* === À PROPOS DE MOI === */
+.section-about {
+    background: #fff; /* Fond blanc pour plus de clarté */
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre douce pour plus de profondeur */
+    margin-bottom: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.section-about:hover {
+    transform: translateY(-10px); /* Effet de légère élévation au survol */
+}
+
+.section-about h2 {
+    font-size: 2.5rem;
+    color: #333; /* Couleur sombre pour un bon contraste */
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px; /* Espacement entre les lettres */
+}
+
+.section-about p {
+    font-size: 1.2rem;
+    color: #555; /* Couleur plus douce pour le texte */
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section-about.visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-about .image-container {
+    margin-top: 40px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.section-about .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ff758c; /* Bordure fine et douce */
+    transition: transform 0.3s ease-in-out;
+}
+
+.section-about .image-container img:hover {
+    transform: scale(1.1); /* Légère augmentation au survol */
+}
+
+.section-about .btn {
+    margin-top: 40px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    color: white;
+    background: #ff758c;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(255, 118, 148, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.section-about .btn:hover {
+    background: #ff7eb3;
+    transform: translateY(-3px); /* Léger effet de décalage au survol */
+}
+
+/* Animation de visibilité de la section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Structure de la section avec deux colonnes === */
+.section-about .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.section-about .content-wrapper .text-content {
+    max-width: 500px;
+}
+
+.section-about .content-wrapper .text-content h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.section-about .content-wrapper .text-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.section-about .content-wrapper .image-container {
+    flex-shrink: 0;
+    margin-top: 0;
+    transition: transform 0.3s ease;
+}
+
+.section-about .content-wrapper .image-container:hover {
+    transform: scale(1.1);
+}
+
+/* === COMPÉTENCES === */
+/* === COMPÉTENCES === */
+.competence-bar {
+    margin-top: 40px;
+    width: 80%; /* Largeur de la barre de compétences */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.competence {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.competence p {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 15px; /* Hauteur de la barre */
+    background-color: #e0e0e0; /* Fond de la barre de progression */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: #ff758c; /* Couleur de la progression */
+    transition: width 0.5s ease-out;
+}
+
+
+/* === ETUDES === */
+.section-etudes {
+    background: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.etudes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.etudes-item {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.etudes-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.etudes-item h3 {
+    color: #ff758c;
+    margin-bottom: 10px;
+}
+
+.etudes-item p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* === PROJETS === */
+.section-projects {
+    background: #f8f8f8; /* Fond gris clair pour les projets */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.project-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 280px; /* Largeur fixe pour les cartes de projet */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-item h3 {
+    font-size: 1.4rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.project-item p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* === CARTE PROJET - STYLES DYNAMIQUES === */
+.project-item a {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    text-decoration: none;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.project-item a:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 118, 148, 0.3);
+}
+
+/* === FORMULAIRE DE CONTACT === */
+/* Pas de modifications sur la section contact, elle reste telle quelle */
+.section-contact {
+    background: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+form {
+    max-width: 650px;
+    margin: auto;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-field input, .form-field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-field input:focus, .form-field textarea:focus {
+    border-color: #ff758c;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(255, 118, 148, 0.4);
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+button.btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    transform: scale(1.05);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Ajoute un peu d'espace entre le bouton et l'image */
+}
+
+.image-container img {
+    max-width: 80%; /* L'image ne dépassera jamais 80% de la largeur de l'écran */
+    max-height: 400px; /* Hauteur maximale de 400px pour éviter qu'elle ne soit trop grande */
+    border-radius: 10px; /* Coins arrondis pour un design plus moderne */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour un effet esthétique */
+    object-fit: contain; /* Assure que l'image garde ses proportions */
+}
+
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+}
+
+
+
